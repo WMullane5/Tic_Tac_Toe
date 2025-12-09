@@ -9,16 +9,23 @@
 class Board {
 private:
     // declare member variables
-    std::vector<char> m_board;
+    std::vector<std::vector<char>> m_board;
     public:
     // constructor for board
     Board() {
-        m_board = {
+        // e stands for empty space
+        m_board =  {
             {'e','e','e',},
             {'e','e','e'},
             {'e','e','e'}
         };
     }
+    void printBoard();
+    bool isValidMove(int row, int column);
+    void makeMove(int row, int column, char choice);
+    bool isFull();
+    void clearBoard();
+
 };
 
 
