@@ -13,6 +13,9 @@ int main() {
     Player p1(name1, 'X');
     Player p2(name2, 'O');
 
+    printPlayerInfo(p1);
+    printPlayerInfo(p2);
+
     TicTacToe game(p1, p2);
     game.run();
 

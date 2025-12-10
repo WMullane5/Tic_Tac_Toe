@@ -48,3 +48,7 @@ void Player::getMove(int& r) const
         }
     }
 }
+void printPlayerInfo(const Player& p)
+{
+    std::cout << "Player Name: " << p.m_name << ", Symbol: " << p.m_symbol << std::endl;
+}

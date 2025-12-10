@@ -25,6 +25,9 @@ public:
 
     //+getMove(r : int&) : void
     void getMove(int& r) const;
+
+    //friend function
+    friend void printPlayerInfo(const Player& p);
 };
 
 #endif
