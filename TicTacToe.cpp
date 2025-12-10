@@ -32,7 +32,7 @@ void TicTacToe::run() {
     Player* other = &m_player2;
     bool gameOver = false;
     while (!gameOver) {
-        cout << "Board: ";
+        cout << "Board: \n";
         m_board.printBoard();
 
         int choice;
