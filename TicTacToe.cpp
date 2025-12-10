@@ -28,15 +28,16 @@ void TicTacToe::run() {
     m_board.clearBoard();
     displayRules();
 
-    Player current = m_player1;
+    Player* current = &m_player1;
+    Player* other = &m_player2;
     bool gameOver = false;
     while (!gameOver) {
         cout << "Board: ";
         m_board.printBoard();
 
         int choice;
-        cout << current.getName() << "'s turn (" << current.getSymbol() << ")" << endl;
-        current.getMove(choice);
+        cout << current->getName() << "'s turn (" << current->getSymbol() << ")" << endl;
+        current->getMove(choice);
 
         if (choice < 1 || choice > 9) {
             cout << "Invalid choice, Please choose a number between 1-9. " << endl;
@@ -49,12 +50,12 @@ void TicTacToe::run() {
             cout << "Spot Takem. Try Again " << endl;
             continue;
         }
-        m_board.makeMove(row, col, current.getSymbol());
-        char winner = m_board.getWinner(current.getSymbol());
+        m_board.makeMove(row, col, current->getSymbol());
+        char winner = m_board.getWinner(current->getSymbol());
         if (winner != ' ') {
             cout << "\nFinal Board:" << endl;
             m_board.printBoard();
-            cout << current.getName() << "wins! (" << winner << ")" << endl;
+            cout << current->getName() << "wins! (" << winner << ")" << endl;
             ++(*this);
             gameOver = true;
 
@@ -66,8 +67,8 @@ void TicTacToe::run() {
             gameOver = true;
         }
         else {
-            current = (current.getSymbol() == m_player1.getSymbol()) ? m_player1 : m_player2;
-
+            //current = (current->getSymbol() == m_player1.getSymbol()) ? &m_player1 : &m_player2;
+            swap(current, other);
         }
     }
     cout << "\nTotal Score: " << m_score << endl;

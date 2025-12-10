@@ -10,7 +10,7 @@
 void Board::clearBoard() {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            m_board[i][j] = 'e';
+            m_board[i][j] = ' ';
         }
     }
 }
@@ -26,7 +26,7 @@ void Board::printBoard() {
 }
 bool Board::isValidMove(int row, int column) {
 
-    if (m_board[row][column] == 'e'){return true;}
+    if (m_board[row][column] == ' '){return true;}
     else {return false;}
 }
 
@@ -34,7 +34,7 @@ bool Board::isFull() {
     int numspaces = 0;
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            if (m_board[i][j] == 'e') {numspaces++;}
+            if (m_board[i][j] == ' ') {numspaces++;}
         }
     }
     std::cout<<numspaces<<std::endl;
@@ -59,4 +59,5 @@ char Board::getWinner(char symbol) {
     if (m_board[0][0] == symbol && m_board[1][1] == symbol && m_board[2][2] == symbol) {return symbol;}
     // check top right to bottom left
     if (m_board[0][2] == symbol && m_board[1][1] == symbol && m_board[2][0] == symbol) {return symbol;}
+    else {return ' ';}
 }

@@ -15,9 +15,9 @@ private:
     Board() {
         // e stands for empty space
         m_board =  {
-            {'e','e','e',},
-            {'e','e','e'},
-            {'e','e','e'}
+            {' ',' ',' ',},
+            {' ',' ',' '},
+            {' ',' ',' '}
         };
     }
     void printBoard();
