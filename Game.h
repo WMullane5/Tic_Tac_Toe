@@ -20,7 +20,7 @@ public:
     virtual void run() = 0;
 
     //+operator+() : void
-    virtual void operator+() = 0;
+    virtual int operator++() = 0;
 
     virtual ~Game() = default;
 };

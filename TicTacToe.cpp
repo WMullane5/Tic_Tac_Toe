@@ -1,8 +1,8 @@
 //
 // Created by wmull on 12/8/2025.
 //
-
 #include "TicTacToe.h"
+
 #include <iostream>
 using namespace std;
 
@@ -31,10 +31,11 @@ void TicTacToe::run() {
     Player current = m_player1;
     bool gameOver = false;
     while (!gameOver) {
-        cout << "Board:" << m_board <<  endl;
+        cout << "Board: ";
+        m_board.printBoard();
 
         int choice;
-        cout << current.getName() << "'s turn (" << current,getSymbol() << ")" << endl;
+        cout << current.getName() << "'s turn (" << current.getSymbol() << ")" << endl;
         current.getMove(choice);
 
         if (choice < 1 || choice > 9) {
@@ -49,23 +50,23 @@ void TicTacToe::run() {
             continue;
         }
         m_board.makeMove(row, col, current.getSymbol());
-        char winner = m_board.getWinner();
-        if (winner != '') {
+        char winner = m_board.getWinner(current.getSymbol());
+        if (winner != ' ') {
             cout << "\nFinal Board:" << endl;
-            cout << m_board << endl;
+            m_board.printBoard();
             cout << current.getName() << "wins! (" << winner << ")" << endl;
             ++(*this);
             gameOver = true;
 
         }
-        else if (m_board.isFull()) {
+        else if (m_board.isFull() == true) {
             cout << "\nFinal Board:" << endl;
-            cout << m_board << endl;
+            m_board.printBoard();
             cout << "It's A Tie! " << endl;
             gameOver = true;
         }
         else {
-            current = (current.get.Symbol() == m_player1.getSymbol()) ? m_player1 : m_player2;
+            current = (current.getSymbol() == m_player1.getSymbol()) ? m_player1 : m_player2;
 
         }
     }

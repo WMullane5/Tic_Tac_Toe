@@ -25,7 +25,7 @@ private:
     void makeMove(int row, int column, char choice);
     bool isFull();
     void clearBoard();
-
+    char getWinner(char symbol);
 };
 
 
