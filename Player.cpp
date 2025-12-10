@@ -23,6 +23,28 @@ std::string Player::getName() const
 
 void Player::getMove(int& r) const
 {
-    std::cout << m_name << " enter a position (1-9): ";
-    std::cin >> r;
+    {
+        while (true)
+        {
+            std::cout << m_name << " enter a position (1-9): ";
+            std::cin >> r;
+
+            if (std::cin.fail())
+            {
+                std::cin.clear();
+                std::cin.ignore(1000, '\n');
+                std::cout << "Invalid input. Please enter a number between 1 and 9." << std::endl;
+                continue;
+            }
+
+            if (r < 1 || r > 9)
+            {
+                std::cout << "Number out of range. Please enter a number between 1 and 9." << std::endl;
+                continue;
+            }
+
+            std::cin.ignore(1000, '\n');
+            break;
+        }
+    }
 }

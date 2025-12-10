@@ -47,7 +47,7 @@ void TicTacToe::run() {
         int row = (choice - 1)/3;
         int col = (choice - 1)%3;
         if (!m_board.isValidMove (row, col)) {
-            cout << "Spot Takem. Try Again " << endl;
+            cout << "Spot Taken. Try Again " << endl;
             continue;
         }
         m_board.makeMove(row, col, current->getSymbol());
@@ -72,5 +72,7 @@ void TicTacToe::run() {
         }
     }
     cout << "\nTotal Score: " << m_score << endl;
+
+}
 
 }
