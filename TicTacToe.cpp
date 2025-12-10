@@ -32,6 +32,7 @@ void TicTacToe::run() {
     Player* other = &m_player2;
     bool gameOver = false;
     while (!gameOver) {
+        char playagain;
         cout << "Board: \n";
         m_board.printBoard();
 
@@ -48,24 +49,41 @@ void TicTacToe::run() {
         m_board.makeMove(row, col, current->getSymbol());
         char winner = m_board.getWinner(current->getSymbol());
         if (winner != ' ') {
-            cout << "\nFinal Board:" << endl;
+            cout << "Game Over" << endl;
+            cout << "Final Board:" << endl;
             m_board.printBoard();
             cout << current->getName() << " wins! (" << winner << ")" << endl;
             ++(*this);
-            gameOver = true;
+            cout <<"Total games played: " << m_score << endl;
+            cout<<"\nPlay Again? (y/n)";
+            cin >> playagain;
+            if (playagain == 'n') {
+                gameOver = true;
+            }
+            else if (playagain == 'y') {
+                m_board.clearBoard();
+            }
 
         }
         else if (m_board.isFull() == true) {
-            cout << "\nFinal Board:" << endl;
+            cout << "Game Over" << endl;
+            cout << "Final Board:" << endl;
             m_board.printBoard();
+            ++(*this);
             cout << "It's A Tie! " << endl;
-            gameOver = true;
+            cout << "Total games played: " << m_score << endl;
+            cout<<"\nPlay Again? (y/n)";
+            cin >> playagain;
+            if (playagain == 'n') {
+                gameOver = true;
+            }
+            else if (playagain == 'y') {
+                m_board.clearBoard();
+            }
         }
         else {
-            //current = (current->getSymbol() == m_player1.getSymbol()) ? &m_player1 : &m_player2;
             swap(current, other);
         }
     }
-    cout << "\nTotal Completed Games: " << m_score << endl;
 
 }

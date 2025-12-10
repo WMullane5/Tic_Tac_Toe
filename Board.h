@@ -12,14 +12,8 @@ private:
     std::vector<std::vector<char>> m_board;
     public:
     // constructor for board
-    Board() {
-        // e stands for empty space
-        m_board =  {
-            {' ',' ',' ',},
-            {' ',' ',' '},
-            {' ',' ',' '}
-        };
-    }
+    Board() : m_board(3, std::vector<char>(3, ' ')){}
+
     void printBoard();
     bool isValidMove(int row, int column);
     void makeMove(int row, int column, char choice);
