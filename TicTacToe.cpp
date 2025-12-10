@@ -39,11 +39,6 @@ void TicTacToe::run() {
         cout << current->getName() << "'s turn (" << current->getSymbol() << ")" << endl;
         current->getMove(choice);
 
-        if (choice < 1 || choice > 9) {
-            cout << "Invalid choice, Please choose a number between 1-9. " << endl;
-            continue;
-
-        }
         int row = (choice - 1)/3;
         int col = (choice - 1)%3;
         if (!m_board.isValidMove (row, col)) {
@@ -72,7 +67,5 @@ void TicTacToe::run() {
         }
     }
     cout << "\nTotal Score: " << m_score << endl;
-
-}
 
 }
