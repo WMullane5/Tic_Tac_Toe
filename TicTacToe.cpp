@@ -50,7 +50,7 @@ void TicTacToe::run() {
         if (winner != ' ') {
             cout << "\nFinal Board:" << endl;
             m_board.printBoard();
-            cout << current->getName() << "wins! (" << winner << ")" << endl;
+            cout << current->getName() << " wins! (" << winner << ")" << endl;
             ++(*this);
             gameOver = true;
 
@@ -66,6 +66,6 @@ void TicTacToe::run() {
             swap(current, other);
         }
     }
-    cout << "\nTotal Score: " << m_score << endl;
+    cout << "\nTotal Completed Games: " << m_score << endl;
 
 }
